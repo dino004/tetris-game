@@ -18,8 +18,8 @@ const tetrominoes = {
 let playField;
 let tetromino;
 
-const convertPositionToIndex = () =>
-  tetromino.row * playField_columns + tetromino.column;
+const convertPositionToIndex = (row, column) =>
+  row * playField_columns + column;
 
 function generatePlayField() {
   for (let i = 0; i < playField_rows * playField_columns; i++) {
@@ -38,8 +38,8 @@ function generateTetromino() {
   const nameTetro = "O";
   const matrixTetro = tetrominoes[nameTetro];
 
-  const columnTetro = 5;
-  const rowTetro = 3;
+  const columnTetro = 4;
+  const rowTetro = 0;
 
   tetromino = {
     name: nameTetro,
@@ -57,17 +57,9 @@ const cells = document.querySelectorAll(".tetris div");
 function drawPlayField() {
   for (let row = 0; row < playField_rows; row++) {
     for (let column = 0; column < playField_columns; column++) {
-      const name = tetromino_names[playField[row][column]];
-      const cellIndex = convertPositionToIndex(
-        tetromino.row + row,
-        tetromino.column + column
-      );
-
-      console.log("Before:", cells[cellIndex].classList);
-
+      const name = playField[row][column];
+      const cellIndex = convertPositionToIndex(row, column);
       cells[cellIndex].classList.add(name);
-
-      console.log("After:", cells[cellIndex].classList);
     }
   }
 }
@@ -78,12 +70,14 @@ function drawTetromino() {
 
   for (let row = 0; row < tetrominoMatrixSize; row++) {
     for (let column = 0; column < tetrominoMatrixSize; column++) {
+      if (tetromino.matrix[row][column] === 0) {
+        continue;
+      }
+
       const cellIndex = convertPositionToIndex(
         tetromino.row + row,
         tetromino.column + column
       );
-      console.log(name, cellIndex);
-
       cells[cellIndex].classList.add(name);
     }
   }
@@ -161,7 +155,7 @@ function placeTetromino() {
       if (!tetromino.matrix[row][column]) continue;
 
       playField[tetromino.row + row][tetromino.column + column] =
-        tetromino.name;
+        tetromino_names[0];
     }
   }
   generateTetromino();
