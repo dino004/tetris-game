@@ -60,7 +60,7 @@ function generateTetromino() {
   const color = `#${Math.floor(Math.random() * 16777215)
     .toString(16)
     .padStart(6, 0)}`;
-  const column = 4;
+  const column = Math.floor((playField_columns - tetrominoes[name].length) / 2);
   const row = 0;
 
   tetromino = {
@@ -96,6 +96,7 @@ function drawTetromino() {
         column + columnIndex
       );
       cells[cellIndex].classList.toggle(name, true);
+
       cells[cellIndex].style.backgroundColor = color;
     });
   });
