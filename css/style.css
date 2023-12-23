@@ -3,7 +3,7 @@
 }
 
 body {
-  background: linear-gradient(90deg, rgb(31, 31, 193), rgb(41, 188, 36));
+  background: linear-gradient(180deg, rgb(31, 31, 193), rgb(228, 231, 9));
   height: 100vh;
   user-select: none;
   display: flex;
@@ -27,12 +27,4 @@ body {
   border-radius: 0.3vh;
   box-shadow: inset 2px 2px 2px rgba(243, 4, 4, 0.271),
     inset -2px -2px 2px rgba(22, 87, 217, 0.271);
-}
-
-.tetris .O {
-  background: rgb(188, 201, 10);
-}
-
-.tetris .L {
-  background: lightgreen;
 }
