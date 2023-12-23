@@ -106,6 +106,7 @@ drawTetromino();
 function draw() {
   cells.forEach(function (cell) {
     cell.removeAttribute("class");
+    cell.style.backgroundColor = "";
   });
   drawTetromino();
   drawPlayField();
