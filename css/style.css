@@ -29,6 +29,25 @@ body {
     inset -2px -2px 2px rgba(22, 87, 217, 0.271);
 }
 
-.tetris .O {
-  background-color: gold;
+.tetris .O{
+  background: rgb(188, 201, 10);
+}
+
+.tetris .L{
+  background: rgb(6, 150, 9);
+}
+.tetris .J{
+  background: rgb(213, 179, 42);
+}
+.tetris .S{
+  background: rgb(87, 4, 158);
+}
+.tetris .Z{
+  background: rgb(210, 231, 15);
+}
+.tetris .T{
+  background: rgb(150, 6, 6);
+}
+.tetris .I{
+  background: rgb(223, 108, 0);
 }
